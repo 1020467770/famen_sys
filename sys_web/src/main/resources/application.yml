@@ -1,0 +1,60 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/famen?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  jackson:
+    time-zone: GMT+8
+
+server:
+  port: 80
+#  server:
+#    servlet:
+#      context-path: famen # 文件名字
+#  servlet:
+#    session:
+#      cookie:
+#        domain: localhost
+#        path: /
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    cn.sqh: debug
+    org.springframework: info
+
+mybatis:
+  type-aliases-package: cn.sqh.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+  helper-dialect=mysql:
+
+#线程池
+async:
+  executor:
+    thread:
+      core_pool_size: 10
+      max_pool_size: 50
+      queue_capacity: 1000
+      keep_alive_seconds: 300
+
+#file:
+#  file:
+#    security:
+#      suffix: txt, doc, docx
+##  upload-dir: F://testFiles
+#  upload-dir: /usr/uploadFiles
+##  upload-dir: F://testFiles
+
+
+
+#async.executor.thread.max_pool_size : 50
+#async.executor.thread.queue_capacity : 1000
+#async.executor.thread.keep_alive_seconds : 300
+
+
+
+
